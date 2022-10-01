@@ -951,7 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelRoot: {fileID: 2601614205359493391}
   SpineBone: {fileID: 1643447848344722725}
-  ParticleSystemHolder: {fileID: 0}
+  ParticleSystemHolder: {fileID: 7954449003060608636}
   Animator: {fileID: 5724864632143107789}
 --- !u!114 &3566484745401635830
 MonoBehaviour:
