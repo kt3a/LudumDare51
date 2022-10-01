@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Animations;
+
+public class CharacterAnimation : MonoBehaviour {
+  public Transform ModelRoot;
+  public Transform SpineBone;
+  public Animator Animator;
+
+  private Vector3 _aimDir = Vector3.zero;
+  private Vector3 _walkDir = Vector3.zero;
+  private Vector3 _currentModelVector = Vector3.zero;
+
+  private float _lerpRate = 5;
+
+  private void LateUpdate()
+  {
+    float x = Input.GetAxis("Horizontal");
+    float y = Input.GetAxis("Vertical");
+
+    float walkSpeed = Mathf.Sqrt(x*x + y * y);
+
+
+    Vector3 mousePos = Input.mousePosition;
+    float screenWidth = Screen.width;
+    float screenHeight = Screen.height;
+
+    float mouseX = mousePos.x - screenWidth / 2;
+    float mouseY = mousePos.y - screenHeight / 2;
+
+    _aimDir = Vector3.Lerp(_aimDir, new Vector3(mouseX, 0, mouseY), Time.deltaTime * _lerpRate);
+    _currentModelVector = Vector3.Lerp(_currentModelVector, _aimDir, Time.deltaTime * _lerpRate);
+    _walkDir = Vector3.Lerp(_walkDir, new Vector3(x, 0, y), Time.deltaTime * _lerpRate);
+
+    float walkAngle = Vector3.SignedAngle(Vector3.forward, _walkDir, Vector3.up);
+
+    if (walkSpeed < 0.1)
+    {
+      _walkDir = Vector3.Lerp(_walkDir, _aimDir, Time.deltaTime * _lerpRate);
+    }
+
+    float mouseAngle = Vector3.SignedAngle(Vector3.forward, _aimDir, Vector3.up);
+    float walkAimDiff = Vector3.SignedAngle(_aimDir, _walkDir, Vector3.up);
+    float modelAngle = Vector3.SignedAngle(Vector3.forward, _currentModelVector, Vector3.up);
+    Animator.SetFloat("WalkAimDiff", Mathf.Abs(walkAimDiff));
+    Animator.SetFloat("WalkRight", Mathf.Sign(walkAimDiff));
+    Animator.SetFloat("Speed", walkSpeed);
+
+    mouseAngle -= modelAngle;
+
+    Vector3 modelRot = ModelRoot.eulerAngles;
+    modelRot.y = modelAngle + 35;
+    ModelRoot.eulerAngles = modelRot;
+
+    Vector3 aimRot = SpineBone.localEulerAngles;
+    aimRot = Vector3.zero;
+    aimRot.y = mouseAngle;
+    SpineBone.localEulerAngles = aimRot;
+  }
+}
