@@ -6,22 +6,29 @@ using UnityEngine.Animations;
 public class CharacterAnimation : MonoBehaviour {
   public Transform ModelRoot;
   public Transform SpineBone;
+  public Transform ParticleSystemHolder;
   public Animator Animator;
 
   private Vector3 _aimDir = Vector3.zero;
   private Vector3 _walkDir = Vector3.zero;
   private Vector3 _currentModelVector = Vector3.zero;
+  private float shootAngleOffset = 0;
 
   private float _lerpRate = 5;
 
   private void LateUpdate()
   {
+    if(Input.GetMouseButtonDown(0))
+    {
+      Shoot();
+    }
+
     float x = Input.GetAxis("Horizontal");
     float y = Input.GetAxis("Vertical");
 
     float walkSpeed = Mathf.Sqrt(x*x + y * y);
 
-
+    shootAngleOffset = Mathf.Lerp(shootAngleOffset, 0, Time.deltaTime * 5);
     Vector3 mousePos = Input.mousePosition;
     float screenWidth = Screen.width;
     float screenHeight = Screen.height;
@@ -53,9 +60,16 @@ public class CharacterAnimation : MonoBehaviour {
     modelRot.y = modelAngle + 35;
     ModelRoot.eulerAngles = modelRot;
 
-    Vector3 aimRot = SpineBone.localEulerAngles;
-    aimRot = Vector3.zero;
-    aimRot.y = mouseAngle;
-    SpineBone.localEulerAngles = aimRot;
+    Vector3 spineForward = Quaternion.Euler(0, 45, 0) * _aimDir;
+    Quaternion rot = Quaternion.AngleAxis(-shootAngleOffset, SpineBone.right);
+
+
+    SpineBone.forward = rot * spineForward;
+    ParticleSystemHolder.forward = new Vector3(mouseX, 0, mouseY);
+  }
+
+  public void Shoot()
+  {
+    shootAngleOffset = 7;
   }
 }

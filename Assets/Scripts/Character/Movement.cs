@@ -57,9 +57,7 @@ public class Movement : MonoBehaviour
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
         var speed = MovementSpeed * Time.deltaTime;
-
-        targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
-        var targetPosition = transform.position + targetVector * speed;
+        var targetPosition = transform.position + targetVector.normalized * speed;
         transform.position = targetPosition;
         return targetVector;
     }

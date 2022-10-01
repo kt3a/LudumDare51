@@ -39,7 +39,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.05
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5790549710358245381}
   m_Solo: 0
@@ -166,10 +166,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 4
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -225,10 +225,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0.05
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 4
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -281,10 +281,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 3
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -334,10 +334,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 4
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -369,19 +369,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: WalkRight
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -605,10 +605,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 3
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
@@ -636,7 +636,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6748798362747359028}
   m_Solo: 0
@@ -715,7 +715,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6748798362747359028}
   m_Solo: 0
@@ -743,7 +743,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.05
   - m_ConditionMode: 4
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6748798362747359028}
   m_Solo: 0
@@ -768,7 +768,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5790549710358245381}
   m_Solo: 0
@@ -796,10 +796,10 @@ AnimatorStateTransition:
     m_EventTreshold: 0.05
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 45
+    m_EventTreshold: 30
   - m_ConditionMode: 3
     m_ConditionEvent: WalkAimDiff
-    m_EventTreshold: 135
+    m_EventTreshold: 150
   - m_ConditionMode: 3
     m_ConditionEvent: WalkRight
     m_EventTreshold: 0
