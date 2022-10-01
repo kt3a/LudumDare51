@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
   public ParticleSystem ShootParticles;
   public CharacterAnimation CharacterAnimation;
+  public LayerMask NotShootableLayer;
 
   void Start()
   {
@@ -21,10 +22,8 @@ public class Shooting : MonoBehaviour {
       CharacterAnimation.Shoot();
 
       Vector3 shootDir = ShootParticles.transform.forward;
-
-      if (Physics.Raycast(ShootParticles.transform.position, shootDir, out RaycastHit hit, 200))
+      if (Physics.Raycast(ShootParticles.transform.position, shootDir, out RaycastHit hit, 200, ~NotShootableLayer, QueryTriggerInteraction.Collide))
       {
-        Debug.Log(hit.collider.name);
         if (hit.collider.CompareTag("Zombie"))
         {
           hit.collider.GetComponent<ZombieAI>().HitZombie();

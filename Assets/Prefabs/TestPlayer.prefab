@@ -907,7 +907,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &3824087175058347404
 MonoBehaviour:
@@ -967,6 +967,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootParticles: {fileID: 89716036424743397}
   CharacterAnimation: {fileID: 2426537952450543825}
+  NotShootableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &3824087175138379352
 GameObject:
   m_ObjectHideFlags: 0

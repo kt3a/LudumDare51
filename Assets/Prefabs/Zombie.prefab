@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1564890018}
   - component: {fileID: 1564890017}
   - component: {fileID: 1564890016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5869,7 +5869,7 @@ GameObject:
   - component: {fileID: 4167530733911419090}
   - component: {fileID: 4167530733911419100}
   - component: {fileID: 919132148700980875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -5965,7 +5965,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3825635048633194239}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 18.597004
