@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour {
   public LayerMask NotShootableLayer;
   public GameObject Gun;
   public GameObject Bat;
+  public Light GunLight;
 
   public float AlertRadius = 20;
   public int MagazineSize = 7;
@@ -24,6 +25,7 @@ public class Shooting : MonoBehaviour {
   {
     //Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Confined;
+    GunLight.enabled = false;
   }
 
   // Update is called once per frame
@@ -64,7 +66,7 @@ public class Shooting : MonoBehaviour {
   {
     ShootParticles.Play();
     CharacterAnimation.Shoot();
-
+    StartCoroutine(MuzzleFlash());
     Vector3 shootDir = ShootParticles.transform.forward;
     if (Physics.Raycast(ShootParticles.transform.position, shootDir, out RaycastHit hit, 200, ~NotShootableLayer, QueryTriggerInteraction.Collide))
     {
@@ -92,5 +94,12 @@ public class Shooting : MonoBehaviour {
     CurrentAmmo = MagazineSize;
 
     _reloading = false;
+  }
+
+  private IEnumerator MuzzleFlash()
+  {
+    GunLight.enabled = true;
+    yield return new WaitForSeconds(0.05f);
+    GunLight.enabled = false;
   }
 }
