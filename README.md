@@ -18,3 +18,4 @@
 "Water Tower" (https://skfb.ly/oxEQP) by CHAMOD is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Farm House" (https://skfb.ly/6znoL) by BoredPain666 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Container" (https://skfb.ly/onwnY) by Chad is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+"Wood fence" (https://skfb.ly/QnDs) by DarksProducer is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
