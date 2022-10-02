@@ -35,7 +35,7 @@ public class ZombieHitbox : MonoBehaviour
 
   void dammageplayer()
   {
-        HealthScript.totalhealth -= 10;
+        HealthScript.totalhealth -= 17;
   }
 
     private void OnTriggerEnter(Collider other)

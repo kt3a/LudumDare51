@@ -7,6 +7,7 @@ public class MeleeHitbox : MonoBehaviour {
 
   private bool _hitting = false;
   private bool _readyToStartHitting = true;
+  public AudioClip MeleeHit;
 
   public void EnableHit()
   {
@@ -27,10 +28,18 @@ public class MeleeHitbox : MonoBehaviour {
   {
     if (_touchedZombies.Count > 0 && _hitting)
     {
+      bool hit = false;
       foreach(ZombieAI zomb in _touchedZombies)
       {
-        zomb.HitZombie(34);
+        if (zomb.HitZombie(34))
+        {
+          hit = true;
+        }
       }
+
+      if (hit)
+       AudioSource.PlayClipAtPoint(MeleeHit, transform.position);
+
       _hitting = false;
     }
   }

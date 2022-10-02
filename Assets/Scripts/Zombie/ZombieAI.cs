@@ -8,6 +8,11 @@ public class ZombieAI : MonoBehaviour {
   public float HearingRange = 5;
   public float SightAngle = 20;
   public float RoamRange = 20;
+  public AudioClip MissSoundEffect;
+  public List<AudioClip> AttackSoundEffects;
+  public List<AudioClip> IdleSoundEffects;
+  public List<AudioClip> HitSoundEffects;
+  public AudioClip EatSound;
   public Transform SpineBone;
   public ParticleSystem HitParticles;
   public static List<ZombieAI> AllZombies = new List<ZombieAI>();
@@ -34,6 +39,7 @@ public class ZombieAI : MonoBehaviour {
   private float _health = 100;
   private float _omniscienceTimer = 0;
   private SkinnedMeshRenderer _skinnedMeshRenderer;
+  private AudioSource _audioSource;
 
   void Start()
   {
@@ -45,6 +51,7 @@ public class ZombieAI : MonoBehaviour {
     _navMeshAgent.speed = IdleSpeed;
     _startPos = transform.position;
     _skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+    _audioSource = GetComponent<AudioSource>();
     StartCoroutine(Idle());
   }
 
@@ -80,7 +87,22 @@ public class ZombieAI : MonoBehaviour {
 
     if (_navMeshAgent.remainingDistance < 2f && _knowsAboutPlayer)
     {
-      _animator.SetTrigger("Attack");
+      if (HealthScript.totalhealth <= 0)
+      {
+        _audioSource.clip = EatSound;
+        _audioSource.loop = true;
+        _audioSource.Play();
+        _audioSource.volume = 1;
+        _animator.SetBool("Eating", true);
+      } else
+      {
+        if (!_audioSource.isPlaying)
+        {
+          _audioSource.clip = AttackSoundEffects[Random.Range(0, AttackSoundEffects.Count)];
+          _audioSource.PlayDelayed(.4f);
+        }
+        _animator.SetTrigger("Attack");
+      }
     }
     else if (!_knowsAboutPlayer && _navMeshAgent.remainingDistance < 2f && !_idiling)
     {
@@ -111,7 +133,7 @@ public class ZombieAI : MonoBehaviour {
     Vector3 playerVec = _player.position - transform.position;
     float playerDist = playerVec.magnitude;
     bool hasLineOfSight = Physics.Linecast(transform.position, _player.position, out RaycastHit hit) && hit.collider.CompareTag("Player");
-
+    bool knewAboutPlayer = _knowsAboutPlayer;
 
     if (playerDist < HearingRange || _omniscienceTimer > 0)
     {
@@ -131,7 +153,13 @@ public class ZombieAI : MonoBehaviour {
     }
     else
     {
-      _knowsAboutPlayer = false;
+      _knowsAboutPlayer = false;  
+    }
+
+    if (_knowsAboutPlayer && !knewAboutPlayer)
+    {
+      _audioSource.clip = AttackSoundEffects[Random.Range(0, AttackSoundEffects.Count)];
+      _audioSource.Play();
     }
   }
 
@@ -152,6 +180,10 @@ public class ZombieAI : MonoBehaviour {
         _navMeshAgent.destination = _startPos + randDir * Random.Range(0, RoamRange);
       } while (_navMeshAgent.pathStatus != NavMeshPathStatus.PathComplete);
 
+      _audioSource.Stop();
+      _audioSource.clip = IdleSoundEffects[Random.Range(0, IdleSoundEffects.Count)];
+      _audioSource.Play();
+
       float timer = 0;
       while (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance && timer < 25)
       {
@@ -161,16 +193,21 @@ public class ZombieAI : MonoBehaviour {
     }
   }
 
-  public void HitZombie(float damage = 34)
+  //Returns true if you did damage (or hit a dead zombie)
+  public bool HitZombie(float damage = 34)
   {
     if (_dead)
-      return;
-    if (!canDamage) //if can't damage 
-      return;
+      return true;
+    if (!canDamage) { 
+      AudioSource.PlayClipAtPoint(MissSoundEffect, transform.position);
+      return false;
+    }
     _spineBoneOffset = 40;
     HitParticles.Play();
     _health -= damage;
-
+    _audioSource.Stop();
+    _audioSource.clip = HitSoundEffects[Random.Range(0, HitSoundEffects.Count)];
+    _audioSource.Play();
     _omniscienceTimer = 5;
     if (_health <= 0)
     {
@@ -180,6 +217,8 @@ public class ZombieAI : MonoBehaviour {
       StopAllCoroutines();
       _navMeshAgent.baseOffset = -.8f;
     }
+
+    return true;
   }
 
   bool checkDistance()

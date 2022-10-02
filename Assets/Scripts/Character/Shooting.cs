@@ -26,7 +26,7 @@ public class Shooting : MonoBehaviour {
   private bool _swingingMelee = false;
   private float _fireDelayTimer = 0;
 
-  void Start()
+    void Start()
   {
     //Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Confined;

@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc832ddc4c9334247a976cdc49e94053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MeleeHit: {fileID: 8300000, guid: 0eabf8fb8d1795841a5964d6734d3d2a, type: 3}
 --- !u!1 &194552037601021395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tlight: {fileID: 509394196}
+  matchlightsound: {fileID: 8300000, guid: bd9e6fb19786a624a88ba23fa70c3f53, type: 3}
 --- !u!114 &4324605463696854944
 MonoBehaviour:
   m_ObjectHideFlags: 0

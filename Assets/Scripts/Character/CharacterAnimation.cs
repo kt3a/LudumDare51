@@ -19,6 +19,9 @@ public class CharacterAnimation : MonoBehaviour {
 
   private void LateUpdate()
   {
+    if (HealthScript.totalhealth <= 0)
+      return;
+
     float x = Input.GetAxis("Horizontal");
     float y = Input.GetAxis("Vertical");
 
@@ -62,6 +65,12 @@ public class CharacterAnimation : MonoBehaviour {
 
     SpineBone.forward = rot * spineForward;
     ParticleSystemHolder.forward = new Vector3(mouseX, 0, mouseY);
+  }
+
+  internal void Die()
+  {
+    Animator.SetBool("Dead", true);
+    Animator.transform.localPosition = new Vector3(0, -0.921f, 0);
   }
 
   internal void SwingMelee()
