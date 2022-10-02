@@ -24,6 +24,7 @@ public class FlameThrowerParts : MonoBehaviour
             gameObject.SetActive(false); //hide
             AudioSource.PlayClipAtPoint(collection, player.transform.position); //collect it
             // add to the total amt to be displayed in the UI
+            FlameThrowerUI.total_parts += 1;
         }
     }
 }
