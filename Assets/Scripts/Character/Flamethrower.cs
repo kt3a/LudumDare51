@@ -18,7 +18,17 @@ public class Flamethrower : MonoBehaviour {
 
         if ((Vector3.Angle(transform.forward, zombDir) < 30 || zombDir.magnitude < 2) && zombDir.magnitude < 9)
         {
-          zomb.HitZombie(Time.deltaTime * 100);
+          zomb.HitZombie(Time.deltaTime * 150, true);
+        }
+      }
+
+      foreach (BurnableFence fence in BurnableFence.Fences)
+      {
+        Vector3 fenceDir = fence.transform.position - transform.position;
+
+        if ((Vector3.Angle(transform.forward, fenceDir) < 30 || fenceDir.magnitude < 2) && fenceDir.magnitude < 9)
+        {
+          fence.StartBurning();
         }
       }
     }

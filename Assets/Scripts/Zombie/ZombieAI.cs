@@ -195,11 +195,11 @@ public class ZombieAI : MonoBehaviour {
   }
 
   //Returns true if you did damage (or hit a dead zombie)
-  public bool HitZombie(float damage = 34)
+  public bool HitZombie(float damage = 34, bool overrideLight = false)
   {
     if (_dead)
       return true;
-    if (!canDamage) { 
+    if (!canDamage && !overrideLight) { 
       AudioSource.PlayClipAtPoint(MissSoundEffect, transform.position);
       return false;
     }
