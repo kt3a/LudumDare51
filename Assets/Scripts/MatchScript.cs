@@ -1,25 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MatchScript : MonoBehaviour
 {
-
+    public TextMeshProUGUI textmesh;
+    int match_amt = 3;
+ 
     void OnTriggerEnter(Collider other) {
-         Destroy(other.gameObject);
-     }
-
-
-     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.SetActive(false);
+        MatchesScriptUI.match_total += match_amt;
     }
 }
