@@ -23,8 +23,9 @@ public class Shooting : MonoBehaviour {
 
   private bool _reloading = false;
   private bool _swingingMelee = false;
+  public AudioClip meleeSound;
 
-  void Start()
+    void Start()
   {
     //Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Confined;
@@ -55,6 +56,7 @@ public class Shooting : MonoBehaviour {
     if (Input.GetKeyDown(KeyCode.E) && !_reloading && !_swingingMelee)
     {
       CharacterAnimation.SwingMelee();
+      AudioSource.PlayClipAtPoint(meleeSound, transform.position);
       _swingingMelee = true;
       Gun.SetActive(false);
       Bat.SetActive(true);

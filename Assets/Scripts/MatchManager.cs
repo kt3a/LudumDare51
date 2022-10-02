@@ -6,12 +6,13 @@ public class MatchManager : MonoBehaviour
 {
     public static bool matchlit = false;
     public Light tlight;
-    // Update is called once per frame
+    public AudioClip matchlightsound;
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && !matchlit && MatchesScriptUI.match_total > 0)
         {
             matchlit = true;
+            AudioSource.PlayClipAtPoint(matchlightsound,transform.position);
             tlight.range = 20;
             tlight.enabled = true;
             MatchesScriptUI.match_total -= 1;
