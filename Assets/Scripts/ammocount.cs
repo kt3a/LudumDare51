@@ -3,33 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ammocount : MonoBehaviour
-{
-    public TextMeshProUGUI textmesh;
-    // Start is called before the first frame update
-    void Start()
+public class ammocount : MonoBehaviour {
+  public List<GameObject> BulletIcons;
+  public List<GameObject> MagIcons;
+  public GameObject BulletEmptyText;
+  public GameObject MagEmptyText;
+
+  // Start is called before the first frame update
+  void Start()
+  {
+
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    //Turn off everthing
+    foreach (var go in BulletIcons)
     {
-        
+      go.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    foreach (var go in MagIcons)
     {
-        if (Shooting.CurrentAmmo == 7)
-            textmesh.text = "";
-        if(Shooting.CurrentAmmo == 6)
-            textmesh.text = "x";
-        if (Shooting.CurrentAmmo == 5)
-            textmesh.text = "x  x";
-        if (Shooting.CurrentAmmo == 4)
-            textmesh.text = "x  x  x";
-        if (Shooting.CurrentAmmo == 3)
-            textmesh.text = "x  x  x  x";
-        if (Shooting.CurrentAmmo == 2)
-            textmesh.text = "x  x  x  x  x";
-        if (Shooting.CurrentAmmo == 1)
-            textmesh.text = "x  x  x  x  x x";
-        if (Shooting.CurrentAmmo == 0)
-            textmesh.text = "x  x  x  x  x x   x";
+      go.SetActive(false);
     }
+
+    BulletEmptyText.SetActive(false);
+    MagEmptyText.SetActive(false);
+
+
+
+    //Turn back on the stuff we want
+    if (Shooting.CurrentAmmo > 0)
+    {
+      for (int i = 0; i < Shooting.CurrentAmmo; i++)
+      {
+        BulletIcons[i].SetActive(true);
+      }
+    }
+    else
+    {
+      BulletEmptyText.SetActive(true);
+    }
+
+    //Turn back on the stuff we want
+    if (Shooting.CurrentMagazines > 0)
+    {
+      for (int i = 0; i < Mathf.Min(Shooting.CurrentMagazines, MagIcons.Count); i++)
+      {
+        MagIcons[i].SetActive(true);
+      }
+    }
+    else
+    {
+      MagEmptyText.SetActive(true);
+    }
+  }
 }
