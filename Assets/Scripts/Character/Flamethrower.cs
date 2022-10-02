@@ -7,7 +7,7 @@ public class Flamethrower : MonoBehaviour {
 
   void Update()
   {
-    bool shooting = Input.GetMouseButton(0);
+    bool shooting = Input.GetMouseButton(0) && !Movement.Running;
 
     Effects.SetActive(shooting);
 

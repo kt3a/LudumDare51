@@ -67,6 +67,11 @@ public class CharacterAnimation : MonoBehaviour {
     ParticleSystemHolder.forward = new Vector3(mouseX, 0, mouseY);
   }
 
+  internal void SetRunning(bool running)
+  {
+    Animator.SetBool("Running", running);
+  }
+
   internal void Die()
   {
     Animator.SetBool("Dead", true);

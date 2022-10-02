@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
 {
     private InputHandler _input;
 
+
+    private float _stamina = 100;
+    public static bool Running;
+
     [SerializeField]
     private bool RotateTowardMouse;
 
@@ -19,9 +23,12 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private Camera Camera;
 
+    private CharacterAnimation Animation;
+
     private void Awake()
     {
         _input = GetComponent<InputHandler>();      //ref to input handler script
+        Animation = GetComponent<CharacterAnimation>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,18 @@ public class Movement : MonoBehaviour
         
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
         var movementVector = MoveTowardTarget(targetVector);
+        Running = (Running || _stamina > 25) && Input.GetKey(KeyCode.LeftShift) && _stamina > 0 && !Shooting.Reloading;
+
+        
+
+        if (Running)
+        {
+            _stamina -= Time.deltaTime * 20;
+        } else
+        {
+          _stamina += Time.deltaTime * 10;
+        }
+        Animation.SetRunning(Running);
 
         // if (!RotateTowardMouse)
         // {
@@ -40,7 +59,7 @@ public class Movement : MonoBehaviour
         //     RotateFromMouseVector();
         // }
 
-    }
+  }
 
     private void RotateFromMouseVector()
     {
@@ -57,7 +76,7 @@ public class Movement : MonoBehaviour
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
         var speed = MovementSpeed * Time.deltaTime;
-        var targetPosition = transform.position + targetVector.normalized * speed;
+        var targetPosition = transform.position + targetVector.normalized * speed * (Running ? 1.5f : 1);
         transform.position = targetPosition;
         return targetVector;
     }

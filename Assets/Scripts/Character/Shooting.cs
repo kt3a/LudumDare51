@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour {
   public static int CurrentAmmo = 7;
   public static int CurrentMagazines = 2;
 
-  private bool _reloading = false;
+  public static bool Reloading = false;
   private bool _swingingMelee = false;
   private float _fireDelayTimer = 0;
 
@@ -37,25 +37,25 @@ public class Shooting : MonoBehaviour {
   void Update()
   {
     _fireDelayTimer -= Time.deltaTime;
-    if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0 && !_reloading && !_swingingMelee && _fireDelayTimer < 0)
+    if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0 && !Reloading && !_swingingMelee && _fireDelayTimer < 0 && !Movement.Running)
     {
       Shoot();
-    } else if (Input.GetButtonDown("Fire1") && CurrentAmmo <= 0 && !_reloading && !_swingingMelee)
+    } else if (Input.GetButtonDown("Fire1") && CurrentAmmo <= 0 && !Reloading && !_swingingMelee)
     {
       EmptyShotSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
       EmptyShotSource.Play();
     }
 
-    if (Input.GetKeyDown(KeyCode.R) && !_reloading && CurrentMagazines > 0 && !_swingingMelee)
+    if (Input.GetKeyDown(KeyCode.R) && !Reloading && CurrentMagazines > 0 && !_swingingMelee && !Movement.Running)
     {
-      _reloading = true;
+      Reloading = true;
       CurrentMagazines--;
       StartCoroutine(Reload());
       CharacterAnimation.Reload();
       ReloadSource.Play();
     }
 
-    if (Input.GetKeyDown(KeyCode.E) && !_reloading && !_swingingMelee)
+    if (Input.GetKeyDown(KeyCode.E) && !Reloading && !_swingingMelee && !Movement.Running)
     {
       CharacterAnimation.SwingMelee();
       _swingingMelee = true;
@@ -107,7 +107,7 @@ public class Shooting : MonoBehaviour {
 
     CurrentAmmo = MagazineSize;
 
-    _reloading = false;
+    Reloading = false;
   }
 
   private IEnumerator MuzzleFlash()

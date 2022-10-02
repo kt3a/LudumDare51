@@ -5968,6 +5968,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 87108c3622319b54fae40ff74dc01ee0, type: 3}
   - {fileID: 8300000, guid: 2c17762e676a21d4b9d7f88db9e3e286, type: 3}
   - {fileID: 8300000, guid: 0a2b846fd1617ff469c23ecef2b073f7, type: 3}
+  - {fileID: 8300000, guid: ac23cfb6f51cde0468de4fad5e350eaa, type: 3}
   EatSound: {fileID: 8300000, guid: 9d243632f591eee4991c9972dbb7caca, type: 3}
   SpineBone: {fileID: 8381623067637644198}
   HitParticles: {fileID: 4773432200202469914}
