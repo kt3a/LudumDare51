@@ -10,6 +10,7 @@ public class ZombieAI : MonoBehaviour {
   public float RoamRange = 20;
   public Transform SpineBone;
   public ParticleSystem HitParticles;
+  public static List<ZombieAI> AllZombies = new List<ZombieAI>();
 
   public float RunSpeed = 4.8f;
   public float IdleSpeed = 0.8f;
@@ -29,6 +30,7 @@ public class ZombieAI : MonoBehaviour {
 
   void Start()
   {
+    AllZombies.Add(this);
     _navMeshAgent = GetComponent<NavMeshAgent>();
     _animator = GetComponent<Animator>();
     _player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -133,21 +135,26 @@ public class ZombieAI : MonoBehaviour {
     }
   }
 
-  public void HitZombie()
+  public void HitZombie(float damage = 34)
   {
     if (_dead)
       return;
     _spineBoneOffset = 40;
     HitParticles.Play();
-    _health -= 34;
+    _health -= damage;
 
     _omniscienceTimer = 5;
     if (_health <= 0)
     {
-      _animator.SetTrigger("Die");
+      _animator.SetBool("Dead", true);
       _dead = true;
       StopAllCoroutines();
       _navMeshAgent.baseOffset = -.8f;
     }
+  }
+
+  public void Alert()
+  {
+    _omniscienceTimer = 5;
   }
 }

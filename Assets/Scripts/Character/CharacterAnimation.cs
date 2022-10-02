@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,6 @@ public class CharacterAnimation : MonoBehaviour {
 
   private void LateUpdate()
   {
-    if(Input.GetMouseButtonDown(0))
-    {
-      Shoot();
-    }
-
     float x = Input.GetAxis("Horizontal");
     float y = Input.GetAxis("Vertical");
 
@@ -66,6 +62,16 @@ public class CharacterAnimation : MonoBehaviour {
 
     SpineBone.forward = rot * spineForward;
     ParticleSystemHolder.forward = new Vector3(mouseX, 0, mouseY);
+  }
+
+  internal void SwingMelee()
+  {
+    Animator.SetTrigger("SwingMelee");
+  }
+
+  internal void Reload()
+  {
+    Animator.SetTrigger("Reload");
   }
 
   public void Shoot()
