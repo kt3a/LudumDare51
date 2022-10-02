@@ -16,4 +16,9 @@ public class InputHandler : MonoBehaviour
 
         MousePosition = Input.mousePosition;
     }
+
+  private void OnDisable()
+  {
+    InputVector = Vector2.zero;
+  }
 }

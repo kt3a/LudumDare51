@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     private InputHandler _input;
 
 
-    private float _stamina = 100;
+    public static float Stamina = 100;
     public static bool Running;
 
     [SerializeField]
@@ -37,16 +37,20 @@ public class Movement : MonoBehaviour
         
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
         var movementVector = MoveTowardTarget(targetVector);
-        Running = (Running || _stamina > 25) && Input.GetKey(KeyCode.LeftShift) && _stamina > 0 && !Shooting.Reloading;
+        Running = (Running || Stamina > 25) && Input.GetKey(KeyCode.LeftShift) && Stamina > 0 && !Shooting.Reloading;
 
         
 
         if (Running)
         {
-            _stamina -= Time.deltaTime * 20;
+            Stamina -= Time.deltaTime * 20;
         } else
         {
-          _stamina += Time.deltaTime * 10;
+          Stamina += Time.deltaTime * 10;
+          if (Stamina > 100)
+          {
+            Stamina = 100;
+          }
         }
         Animation.SetRunning(Running);
 
