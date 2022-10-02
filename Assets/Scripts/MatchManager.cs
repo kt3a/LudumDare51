@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class MatchManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     bool matchlit = false;
     public Light tlight;
     // Update is called once per frame
@@ -27,12 +21,14 @@ public class MatchManager : MonoBehaviour
     }
     IEnumerator FireFade()
     {
-        for (int i=0; i < 10; i ++)
+        float timer = 0;
+        while (timer < 10)
         {
-            tlight.range -= 2;
-            yield return new WaitForSeconds(1f);
+            timer += Time.deltaTime;
+            tlight.range = 20 - (20 * (timer / 10));
+            yield return new WaitForEndOfFrame();
         }
-       // light.enabled = false;
+        // light.enabled = false;
         matchlit = false;
     }
 }

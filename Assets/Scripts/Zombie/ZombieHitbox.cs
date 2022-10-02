@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,11 +28,17 @@ public class ZombieHitbox : MonoBehaviour
     if (_touchingPlayer && _hitting)
     {
       Debug.Log("Bro just got punched");
+      dammageplayer();
       _hitting = false;
     }
   }
 
-  private void OnTriggerEnter(Collider other)
+  void dammageplayer()
+  {
+        HealthScript.totalhealth -= 10;
+  }
+
+    private void OnTriggerEnter(Collider other)
   {
     if (other.CompareTag("Player"))
     {
