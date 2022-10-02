@@ -6,3 +6,5 @@
 "Makeshift 1911" (https://skfb.ly/6RFVD) by csheffield is licensed under CC Attribution-NonCommercial-ShareAlike (http://creativecommons.org/licenses/by-nc-sa/4.0/).
 "Thunder Sound FX" (https://soundbible.com/2053-Thunder-Sound-FX.html#) by Grant Evans is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/3.0/).
 "Match" (https://skfb.ly/6qLJR) by svyART is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Gun Fire" (https://soundbible.com/1998-Gun-Fire.html) by GoodSoundForYou is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+".25 Ammo box" (https://skfb.ly/6YNq9) by pavito is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

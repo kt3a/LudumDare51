@@ -10,13 +10,16 @@ public class Shooting : MonoBehaviour {
   public GameObject Gun;
   public GameObject Bat;
   public Light GunLight;
+  public AudioSource GunShotSource;
+  public AudioSource EmptyShotSource;
+  public AudioSource ReloadSource;
 
   public float AlertRadius = 20;
   public int MagazineSize = 7;
   public float ReloadTime = 4;
 
   public int CurrentAmmo = 7;
-  public int CurrentMagazines = 2;
+  public static int CurrentMagazines = 2;
 
   private bool _reloading = false;
   private bool _swingingMelee = false;
@@ -34,6 +37,10 @@ public class Shooting : MonoBehaviour {
     if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0 && !_reloading && !_swingingMelee)
     {
       Shoot();
+    } else if (Input.GetButtonDown("Fire1") && CurrentAmmo <= 0 && !_reloading && !_swingingMelee)
+    {
+      EmptyShotSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+      EmptyShotSource.Play();
     }
 
     if (Input.GetKeyDown(KeyCode.R) && !_reloading && CurrentMagazines > 0 && !_swingingMelee)
@@ -42,6 +49,7 @@ public class Shooting : MonoBehaviour {
       CurrentMagazines--;
       StartCoroutine(Reload());
       CharacterAnimation.Reload();
+      ReloadSource.Play();
     }
 
     if (Input.GetKeyDown(KeyCode.E) && !_reloading && !_swingingMelee)
@@ -67,8 +75,10 @@ public class Shooting : MonoBehaviour {
     ShootParticles.Play();
     CharacterAnimation.Shoot();
     StartCoroutine(MuzzleFlash());
+    GunShotSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+    GunShotSource.Play();
     Vector3 shootDir = ShootParticles.transform.forward;
-    if (Physics.Raycast(ShootParticles.transform.position, shootDir, out RaycastHit hit, 200, ~NotShootableLayer, QueryTriggerInteraction.Collide))
+    if (Physics.Raycast(ShootParticles.transform.position - shootDir, shootDir, out RaycastHit hit, 200, ~NotShootableLayer, QueryTriggerInteraction.Collide))
     {
       if (hit.collider.CompareTag("Zombie"))
       {

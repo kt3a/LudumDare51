@@ -75,5 +75,7 @@ public class LightningController : MonoBehaviour {
 
       yield return new WaitForEndOfFrame();
     }
+
+    DirectionalLight.intensity = 0;
   }
 }
