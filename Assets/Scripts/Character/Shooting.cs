@@ -17,12 +17,14 @@ public class Shooting : MonoBehaviour {
   public float AlertRadius = 20;
   public int MagazineSize = 7;
   public float ReloadTime = 4;
+  public float FireDelay = 0.6f;
 
   public static int CurrentAmmo = 7;
   public static int CurrentMagazines = 2;
 
   private bool _reloading = false;
   private bool _swingingMelee = false;
+  private float _fireDelayTimer = 0;
 
   void Start()
   {
@@ -34,7 +36,8 @@ public class Shooting : MonoBehaviour {
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0 && !_reloading && !_swingingMelee)
+    _fireDelayTimer -= Time.deltaTime;
+    if (Input.GetButtonDown("Fire1") && CurrentAmmo > 0 && !_reloading && !_swingingMelee && _fireDelayTimer < 0)
     {
       Shoot();
     } else if (Input.GetButtonDown("Fire1") && CurrentAmmo <= 0 && !_reloading && !_swingingMelee)
@@ -72,6 +75,7 @@ public class Shooting : MonoBehaviour {
 
   private void Shoot()
   {
+    _fireDelayTimer = FireDelay;
     ShootParticles.Play();
     CharacterAnimation.Shoot();
     StartCoroutine(MuzzleFlash());

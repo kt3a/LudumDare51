@@ -1355,8 +1355,7 @@ MonoBehaviour:
   AlertRadius: 20
   MagazineSize: 7
   ReloadTime: 4
-  CurrentAmmo: 7
-  CurrentMagazines: 2
+  FireDelay: 0.3
 --- !u!114 &1193666601
 MonoBehaviour:
   m_ObjectHideFlags: 0
