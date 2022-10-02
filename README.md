@@ -9,3 +9,12 @@
 "Gun Fire" (https://soundbible.com/1998-Gun-Fire.html) by GoodSoundForYou is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 ".25 Ammo box" (https://skfb.ly/6YNq9) by pavito is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 free sound effects from https://www.fesliyanstudios.com
+"Hacksaw" (https://skfb.ly/owPsL) by bogdanzloy20280 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"M4 - tractor" (https://skfb.ly/or7MU) by RaynaudL is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+"Industrial_Silo" (https://skfb.ly/oxzNt) by Dhruv is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Wooden Forest Houses" (https://skfb.ly/owAsN) by Andrej Grave is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Old Rusty Car" (https://skfb.ly/LxRy) by Renafox is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).
+"Rusty-steel-scrap-pile (Decimated)" (https://skfb.ly/ow7Ir) by Thunder is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Tower Crane" (https://skfb.ly/oxA9K) by CHAMOD is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Water Tower" (https://skfb.ly/oxEQP) by CHAMOD is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Farm House" (https://skfb.ly/6znoL) by BoredPain666 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
