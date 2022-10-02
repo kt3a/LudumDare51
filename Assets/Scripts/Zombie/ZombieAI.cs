@@ -167,7 +167,7 @@ public class ZombieAI : MonoBehaviour
         float damagedistance = 3;
         float realdist = Vector3.Distance(gameObject.transform.position, _player.position);
         Debug.Log(realdist);
-        if (realdist <= damagedistance || LightningController.CurrentlyLightninging)
+        if ((realdist <= damagedistance && MatchManager.matchlit) || LightningController.CurrentlyLightninging)
         {
             return true;
         }

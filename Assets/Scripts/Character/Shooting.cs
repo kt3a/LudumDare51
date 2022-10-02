@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour {
   public int MagazineSize = 7;
   public float ReloadTime = 4;
 
-  public int CurrentAmmo = 7;
+  public static int CurrentAmmo = 7;
   public static int CurrentMagazines = 2;
 
   private bool _reloading = false;

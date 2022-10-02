@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MatchManager : MonoBehaviour
 {
-    bool matchlit = false;
+    public static bool matchlit = false;
     public Light tlight;
     // Update is called once per frame
     void Update()
