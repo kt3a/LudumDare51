@@ -36,7 +36,7 @@ public class ZombieAI : MonoBehaviour {
   private Vector3 _prevPos;
   private Vector3 _startPos;
   private float _spineBoneOffset = 0;
-  private float _health = 100;
+  public float Health = 100;
   private float _omniscienceTimer = 0;
   private SkinnedMeshRenderer _skinnedMeshRenderer;
   private AudioSource _audioSource;
@@ -205,12 +205,12 @@ public class ZombieAI : MonoBehaviour {
     }
     _spineBoneOffset = 40;
     HitParticles.Play();
-    _health -= damage;
+    Health -= damage;
     _audioSource.Stop();
     _audioSource.clip = HitSoundEffects[Random.Range(0, HitSoundEffects.Count)];
     _audioSource.Play();
     _omniscienceTimer = 5;
-    if (_health <= 0)
+    if (Health <= 0)
     {
       _animator.SetBool("Dead", true);
       _dead = true;
