@@ -46,7 +46,7 @@ public class HealthScript : MonoBehaviour
         {
             healthbar.fillAmount = totalhealth / 100f;
         }
-        if(totalhealth < 0)
+        if(totalhealth <= 0)
         {
             healthbar.fillAmount = totalhealth / 100f;
             Animation.Die();

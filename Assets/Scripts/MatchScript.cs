@@ -8,9 +8,16 @@ public class MatchScript : MonoBehaviour
     public AudioClip collection;
     public GameObject player;
 
-    void OnTriggerEnter(Collider other) {
+  private void Start()
+  {
+    player = GameObject.FindGameObjectWithTag("Player");
+  }
+
+  void OnTriggerEnter(Collider other) {
+      if (other.CompareTag("Player")) { 
         gameObject.SetActive(false);
         AudioSource.PlayClipAtPoint(collection, player.transform.position);
         MatchesScriptUI.match_total += match_amt;
+      }
     }
 }

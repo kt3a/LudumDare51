@@ -182,7 +182,8 @@ public class ZombieAI : MonoBehaviour {
 
       _audioSource.Stop();
       _audioSource.clip = IdleSoundEffects[Random.Range(0, IdleSoundEffects.Count)];
-      _audioSource.Play();
+      AudioSource.PlayClipAtPoint(_audioSource.clip, transform.position, .3f);
+      //_audioSource.Play();
 
       float timer = 0;
       while (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance && timer < 25)

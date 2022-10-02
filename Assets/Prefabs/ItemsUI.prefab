@@ -466,7 +466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InnerBar: {fileID: 514942458963261059}
-  HurtSounds: []
+  HurtSounds:
+  - {fileID: 8300000, guid: ea872ba7c3fc72a4589ed752cf15075e, type: 3}
+  - {fileID: 8300000, guid: 008b396fab211c349b92d3812bafc2c1, type: 3}
 --- !u!114 &514942458702839798
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b05a2d6ab7a4e4c927359a07407137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 8300000, guid: 826fa11a0a7fa6f4197c9ea7c2582c81, type: 3}
+  collection: {fileID: 8300000, guid: 5fd33e2a4f959f64caf30fac30f31335, type: 3}
   player: {fileID: 0}
 --- !u!1 &7114630125503346104
 GameObject:
