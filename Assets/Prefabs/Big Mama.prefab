@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3825635048633194239, guid: 30d2f6caa74ea7b43a692c8ad3c30c09, type: 3}
       propertyPath: m_Name
-      value: Zombie (26)
+      value: Big Mama
       objectReference: {fileID: 0}
     - target: {fileID: 4493662663672368197, guid: 30d2f6caa74ea7b43a692c8ad3c30c09, type: 3}
       propertyPath: m_RootOrder
@@ -57,3 +57,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30d2f6caa74ea7b43a692c8ad3c30c09, type: 3}
+--- !u!1 &8696158186484722783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3825635048633194239, guid: 30d2f6caa74ea7b43a692c8ad3c30c09, type: 3}
+  m_PrefabInstance: {fileID: 5600673659914435232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4070645011820381667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696158186484722783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc54f102e959874ab3cd7278ce31b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinMenu: {fileID: 0}

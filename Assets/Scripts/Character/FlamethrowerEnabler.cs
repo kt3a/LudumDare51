@@ -6,6 +6,8 @@ public class FlamethrowerEnabler : MonoBehaviour
 {
   public Shooting ShootingScript;
   public GameObject Flamethrower;
+  public GameObject AmmoUI;
+  public GameObject MagsUI;
   public bool FlamethrowerEnabled = false;
 
   private void Update()
@@ -21,5 +23,7 @@ public class FlamethrowerEnabler : MonoBehaviour
     FlamethrowerEnabled = !FlamethrowerEnabled;
     Flamethrower.SetActive(FlamethrowerEnabled);
     ShootingScript.enabled = !FlamethrowerEnabled;
+    MagsUI.SetActive(false);
+    AmmoUI.SetActive(false);
   }
 }
