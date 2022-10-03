@@ -11,7 +11,7 @@ public class FlameThrowerUI : MonoBehaviour
     FlamethrowerEnabler flamethrower;
     private void Start()
     {
-        flamethrower = GameObject.FindObjectOfType<FlamethrowerEnabler>();
+        flamethrower = FindObjectOfType<FlamethrowerEnabler>();
     }
     // Update is called once per frame
     void Update()
