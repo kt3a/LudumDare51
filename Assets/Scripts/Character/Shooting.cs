@@ -28,9 +28,12 @@ public class Shooting : MonoBehaviour {
 
     void Start()
   {
-    //Cursor.visible = false;
+    Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Confined;
     GunLight.enabled = false;
+    CurrentAmmo = 7;
+    CurrentMagazines = 2;
+    Reloading = false;
   }
 
   // Update is called once per frame

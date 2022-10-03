@@ -8,6 +8,7 @@ public class HealthScript : MonoBehaviour
 {
     public static int totalhealth = 100;
     public GameObject InnerBar;
+    public GameObject DeathScreen;
     public List<AudioClip> HurtSounds;
     private CharacterAnimation Animation;
     private InputHandler InputHandler;
@@ -37,6 +38,7 @@ public class HealthScript : MonoBehaviour
         Flamethrower = FindObjectOfType<Flamethrower>(true);
         Shooting = FindObjectOfType<Shooting>();
         Instance = this;
+        totalhealth = 100;
     }
 
     // Update is called once per frame
@@ -53,6 +55,8 @@ public class HealthScript : MonoBehaviour
             Shooting.enabled = false;
             InputHandler.enabled = false;
             Flamethrower.enabled = false;
+            DeathScreen.SetActive(true);
+            Cursor.visible = true;
         }
 
     }

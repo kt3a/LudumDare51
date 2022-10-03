@@ -1385,6 +1385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootingScript: {fileID: 3566484745401635830}
   Flamethrower: {fileID: 3865209153559921446}
+  AmmoUI: {fileID: 0}
+  MagsUI: {fileID: 0}
   FlamethrowerEnabled: 0
 --- !u!1 &3824087175138379352
 GameObject:
@@ -1493,7 +1495,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 1

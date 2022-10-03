@@ -6,6 +6,12 @@ public class BurnableFence : MonoBehaviour {
   public static List<BurnableFence> Fences = new List<BurnableFence>();
   public GameObject burnEffects;
   private bool _burning = false;
+
+  private void Awake()
+  {
+    Fences.Clear();
+  }
+
   void Start()
   {
     Fences.Add(this);
